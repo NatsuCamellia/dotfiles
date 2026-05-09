@@ -1,0 +1,10 @@
+[Unit]
+Description=Dotfiles auto sync
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/zsh %h/.dotfiles/dotfiles-sync.sh
+
+[Install]
+WantedBy=default.target
