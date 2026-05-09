@@ -66,12 +66,10 @@ vim.o.confirm = true
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
 -- Remove this option if you want your OS clipboard to remain independent.
 -- See `:help 'clipboard'`
+vim.o.clipboard = 'unnamedplus'
 if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
-  -- Sync to which clipboard
+  -- Sync to remote clipboard
   vim.g.clipboard = 'osc52'
-else
-  -- Whether to sync clipboar
-  vim.o.clipboard = 'unnamedplus'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
