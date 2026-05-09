@@ -1,6 +1,8 @@
 #!/bin/sh
 
-GIT="git --git-dir=$HOME/.dotfiles/dotfiles.git --work-tree=$HOME"
+dot() {
+    git --git-dir=$HOME/.dotfiles/dotfiles.git --work-tree=$HOME "$@"
+}
 
 notify() {
     case "$(uname -s)" in
@@ -15,7 +17,7 @@ notify() {
 
 # notify "Syncing..."
 
-$GIT pull --rebase --autostash
+dot pull --rebase --autostash
 # $GIT add -u
 # $GIT diff --cached --quiet || $GIT commit -m "chore: auto sync from $(hostname)"
 # $GIT push
