@@ -1,8 +1,3 @@
-# # [ Anitidote Plugins ]
-# source ~/.antidote/antidote.zsh
-# # initialize plugins statically with ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
-# antidote load
-
 # [ Powerlevel10k ]
 source $ZDOTDIR/powerlevel10k/powerlevel10k.zsh-theme
 if [[ -r $ZDOTDIR/p10k.zsh ]]; then
