@@ -2,8 +2,6 @@
 ZDOTDIR=$HOME/.config/zsh
 
 export XDG_CONFIG_HOME="$HOME/.config"
-# auto-completion
-export fpath=($fpath $HOME/.config/zsh/functions)
 
 export PATH=~/.local/bin:$PATH
 
