@@ -28,3 +28,7 @@ git pull
 
 Move `.gitconfig` to `.config/git/config.local`. This allows Git to source `.config/git/config` first and then include your local config later, ensuring your sensitive config is not in the repo.
 
+### Tmux
+
+Press `<prefix> + I` (`Ctrl-Space` + `Shift-I`) to install tmux plugins after stowing the dotfiles. See more on [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm).
+
