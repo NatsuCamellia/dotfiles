@@ -12,13 +12,14 @@ You can change `~/dotfiles` to any directory you want, but make sure `~` to be t
 ```
 git clone --recurse-submodules --shallow-submodules <repo-url> ~/dotfiles
 cd ~/dotfiles
+git config submodule.recurse true
 stow .
 ```
 
 ## Update
 
 ```
-git pull --recurse-submodules
+git pull
 ```
 
 ## Tool-Specific Instructions
