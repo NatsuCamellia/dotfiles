@@ -4,6 +4,9 @@
 [core]
 	autocrlf = input
 
+[commit]
+	verbose = true
+
 [color]
 	ui = auto
 
