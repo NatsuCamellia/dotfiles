@@ -20,3 +20,10 @@ stow .
 ```
 git pull --recurse-submodules
 ```
+
+## Tool-Specific Instructions
+
+### Git
+
+Move `.gitconfig` to `.config/git/config.local`. This allows Git to source `.config/git/config` first and then include your local config later, ensuring your sensitive config is not in the repo.
+
