@@ -220,7 +220,9 @@ return {
         },
         filetypes = { "c", "cpp", "objc", "objcpp" },
       },
-      rust_analyzer = {},
+      rust_analyzer = {
+        condition = function() return vim.fn.executable('cargo') == 1 end,
+      },
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
@@ -236,17 +238,33 @@ return {
         },
       },
       stylua = {},
-      ocamllsp = {},
-      gopls = {}
+      ocamllsp = {
+        condition = function() return vim.fn.executable('opam') == 1 end,
+      },
+      gopls = {
+        condition = function()
+          if vim.fn.executable('go') ~= 1 then return false end
+          -- gopls v0.21+ requires Go 1.21+ (cmp, slices, maps) and 1.23+ (iter)
+          local out = vim.fn.system('go version')
+          local major, minor = out:match('go(%d+)%.(%d+)')
+          if not major then return false end
+          return tonumber(major) > 1 or (tonumber(major) == 1 and tonumber(minor) >= 21)
+        end,
+      },
     }
 
-    -- Setup language servers
+    -- Setup language servers, skipping any whose condition is not met
+    local ensure_installed = {}
     for server, opt in pairs(servers) do
-      opt.capabilities = vim.tbl_deep_extend('force', {}, capabilities, opt.capabilities or {})
-      vim.lsp.config(server, opt)
+      local condition = opt.condition
+      opt.condition = nil
+      if not condition or condition() then
+        opt.capabilities = vim.tbl_deep_extend('force', {}, capabilities, opt.capabilities or {})
+        vim.lsp.config(server, opt)
+        table.insert(ensure_installed, server)
+      end
     end
 
-    local ensure_installed = vim.tbl_keys(servers or {})
     require('mason-lspconfig').setup {
       ensure_installed = ensure_installed,
       automatic_installation = true,
