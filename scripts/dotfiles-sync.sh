@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dot() {
-    git --git-dir=$HOME/.dotfiles/dotfiles.git --work-tree=$HOME "$@"
+    git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles "$@"
 }
 
 notify() {
@@ -18,8 +18,8 @@ notify() {
 # notify "Syncing..."
 
 dot pull --rebase --autostash
-# $GIT add -u
-# $GIT diff --cached --quiet || $GIT commit -m "chore: auto sync from $(hostname)"
-# $GIT push
+# dot add -u
+# dot diff --cached --quiet || $GIT commit -m "chore: auto sync from $(hostname)"
+# dot push
 
 # notify "Sync complete"
