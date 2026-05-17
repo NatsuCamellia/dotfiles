@@ -11,5 +11,8 @@
 	ui = auto
 
 [alias]
-	lg = "log --oneline --graph --all --decorate --color"
+	lg = "log --oneline --graph --decorate --color"
+	ll = "log --oneline --graph --decorate --color --all"
+	st = "status -s"
+	cm = "commit"
 
