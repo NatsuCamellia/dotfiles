@@ -15,3 +15,6 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
+# iTerm2 Shell Integration
+source $ZDOTDIR/iterm2_shell_integration.zsh
+
