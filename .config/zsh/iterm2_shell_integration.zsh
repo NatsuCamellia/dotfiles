@@ -158,7 +158,7 @@ if [[ -o interactive ]]; then
     # to a VPN.
     if [ -z "${iterm2_hostname-}" ]; then
       if [ "$(uname)" != "Darwin" ]; then
-        iterm2_hostname=`hostname -s 2>/dev/null`
+        iterm2_hostname=`hostname -f 2>/dev/null`
         # Some flavors of BSD (i.e. NetBSD and OpenBSD) don't have the -f option.
         if [ $? -ne 0 ]; then
           iterm2_hostname=`hostname`

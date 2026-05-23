@@ -16,5 +16,6 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # iTerm2 Shell Integration
+iterm2_hostname=`hostname -s 2>/dev/null`
 source $ZDOTDIR/iterm2_shell_integration.zsh
 
