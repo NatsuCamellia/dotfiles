@@ -10,8 +10,8 @@ if [ -r ~/.cargo/env ]; then
 fi
 
 # host-specific environment variables
-if [ -r "$HOME/.zshenv.local" ]; then
-    source "$HOME/.zshenv.local"
+if [ -r "$ZDOTDIR/.zshenv.local" ]; then
+    source "$ZDOTDIR/.zshenv.local"
 fi
 
 # use Neovim as the default editor
