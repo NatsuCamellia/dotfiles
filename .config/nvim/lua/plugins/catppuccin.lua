@@ -11,6 +11,10 @@ return {
       integrations = {
         gitsigns = true,
       },
+      float = {
+        transparent = true,
+        solid = true
+      },
     }
 
     -- Load the theme
